@@ -1,0 +1,95 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block body %}
+    <style>
+        .container {
+            max-width: 800px;
+            margin: 3rem auto;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            color: #333;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+
+        .content {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .error {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-radius: 0.25rem;
+            padding: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .error h1 {
+            color: #721c24;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .error p {
+            color: #721c24;
+            font-size: 1.1rem;
+        }
+
+        hr {
+            border-top: 1px solid #dee2e6;
+            margin: 2rem 0;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .actions a {
+            display: inline-block;
+            font-weight: 400;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            user-select: none;
+            border: 1px solid transparent;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .actions a:hover {
+            color: #0056b3;
+        }
+    </style>
+
+    <div class="container">
+        {% if message %}
+            <div class="error">
+                <h1>Error</h1>
+                <p>{{ message }}</p>
+            </div>
+        {% else %}
+            <h1>{{ title }}</h1>
+            <div class="content">{{ content|safe }}</div>
+
+            <hr>
+            <div class="actions">
+                <a href="{% url 'edit_page' title %}">Edit</a>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
