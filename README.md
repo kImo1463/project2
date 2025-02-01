@@ -1,5 +1,3 @@
-**User-Friendly Online Encyclopedia
-**
 This project is a user-friendly online encyclopedia designed to replicate the structure and functionality of Wikipedia. Built with Django and SQLite, the platform allows users to search for, read, and contribute to articles, all while offering a clean, easy-to-navigate interface.
 Features
 
